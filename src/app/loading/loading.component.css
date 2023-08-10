@@ -1,0 +1,43 @@
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../assets/loading.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.loading-image {
+  width: 100%;
+  height: auto;
+  max-height: calc(100% - 100px);
+}
+
+.loading-text {
+  font-size: 18px;
+  color: white;
+  margin-bottom: 60px;
+}
+
+.progress-container {
+  position: relative;
+  width: 500px;
+  height: 100px;
+  align-self: center;
+  margin-top: -150px;
+}
+
+.custom-progress-bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 500px;
+}
