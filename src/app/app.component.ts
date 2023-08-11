@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SwapiDevService } from "./swapi-dev.service";
+import { Ratings } from "./Ratings";
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,21 @@ export class AppComponent implements OnInit {
   currentSortOption: string = '';
   searchText: string = '';
 
-  selectedFilmDetails: { title: string, opening_crawl: string, director: string } = { title: '', opening_crawl: '', director: '' };
+  selectedFilmDetails:
+    {
+      title: string,
+      opening_crawl: string,
+      director: string,
+      poster: string,
+      ratings: Ratings[]
+    } =
+    {
+      title: '',
+      opening_crawl: '',
+      director: '',
+      poster: '',
+      ratings: []
+    };
 
   constructor(private swapiDevService: SwapiDevService) {}
 
@@ -23,7 +38,7 @@ export class AppComponent implements OnInit {
 
   public fetchFilms() {
     this.isLoading = true;
-    this.swapiDevService.getFilms().subscribe(
+    this.swapiDevService.getFilmsWithDetails().subscribe(
       (films: any[]) => {
         this.films = films;
         this.isLoading = false;
@@ -36,13 +51,14 @@ export class AppComponent implements OnInit {
 
   public onSearchTextEntered(searchText: string) {
     this.searchText = searchText;
+    this.selectedFilmDetails = { title: '', opening_crawl: '', director: '', poster: '', ratings: [] };
   }
 
   public onSortOptionSelected(option: string) {
     this.currentSortOption = option;
   }
 
-  public onFilmSelected(details: { title:string, opening_crawl: string, director: string }) {
+  public onFilmSelected(details: { title:string, opening_crawl: string, director: string, poster: string, ratings: Ratings[] }) {
     this.selectedFilmDetails = details;
   }
 }

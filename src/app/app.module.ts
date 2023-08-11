@@ -12,6 +12,7 @@ import { SearchSortComponent } from './search-sort/search-sort.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieDescriptionComponent } from './movie-description/movie-description.component';
 import { NgOptimizedImage } from "@angular/common";
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -28,9 +29,11 @@ import { NgOptimizedImage } from "@angular/common";
     MatProgressBarModule,
     MatMenuModule,
     MatButtonModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

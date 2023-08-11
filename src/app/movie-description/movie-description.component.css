@@ -1,3 +1,39 @@
 p, h1 {
   color: #596e81;
 }
+
+p {
+  margin-top: 20px;
+}
+
+.movie-description {
+  text-align: left;
+}
+
+.movie-poster {
+  display: block;
+  margin: 0 auto;
+}
+
+.rating-button {
+  padding: 10px 20px;
+  background-color: #f7f8fa;
+  color: #596e81;
+  border: 1px solid #dfe3e7;
+  border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  margin-right: 15px;
+  margin-top: 15px;
+}
+
+.rating-container {
+  display: flex;
+  align-items: center;
+}
+
+.star-container {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}

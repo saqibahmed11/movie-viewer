@@ -1,11 +1,22 @@
 <div class="movie-description">
   <ng-container *ngIf="filmDetails.title; else defaultText">
     <h1>{{ filmDetails.title }}</h1>
+    <img [src]="filmDetails.poster" alt="Movie Poster" class="movie-poster"/>
     <p>{{ filmDetails.opening_crawl }}</p>
     <p>Directed by: {{ filmDetails.director }}</p>
+    <div class="rating-container">
+      <p>Average rating:</p>
+      <div class="star-container">
+        <mat-icon
+          *ngFor="let star of getStarCount(); let i = index"
+          [style.color]="star === 1 ? 'gold' : 'gray'">star</mat-icon>
+      </div>
+    </div>
+    <ng-container *ngFor="let rating of filmDetails.ratings">
+      <button mat-button class="rating-button">{{ formatRating(rating) }}</button>
+    </ng-container>
   </ng-container>
   <ng-template #defaultText>
     <p>No movie is selected.</p>
   </ng-template>
 </div>
-

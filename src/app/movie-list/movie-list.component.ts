@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Ratings } from "../Ratings";
 
 @Component({
   selector: 'app-movie-list',
@@ -31,14 +32,18 @@ export class MovieListComponent {
   @Output() selectedFilm = new EventEmitter<{
     title: string,
     opening_crawl: string,
-    director: string
+    director: string,
+    poster: string,
+    ratings: Ratings[]
   }>();
 
   public selectFilm(film: any) {
     this.selectedFilm.emit({
       title: 'Episode ' + this.romanize(film.episode_id) + ' - ' + film.title,
       opening_crawl: film.opening_crawl,
-      director: film.director
+      director: film.director,
+      poster: film.omdbData.Poster,
+      ratings: film.omdbData.Ratings
     });
   }
 
@@ -69,7 +74,6 @@ export class MovieListComponent {
         break;
     }
   }
-
 
   public romanize(num: number): string {
     if (isNaN(num)) return '';
