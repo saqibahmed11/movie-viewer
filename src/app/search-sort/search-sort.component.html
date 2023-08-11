@@ -1,0 +1,12 @@
+<div class="search-sort-container">
+  <button mat-button [matMenuTriggerFor]="sortMenu" class="sort-button">Sort by...</button>
+  <mat-menu #sortMenu="matMenu">
+    <button mat-menu-item (click)="sortFilms('episode')">Episode</button>
+    <button mat-menu-item (click)="sortFilms('title')">Title</button>
+    <button mat-menu-item (click)="sortFilms('year')">Year</button>
+  </mat-menu>
+  <div class="search-bar">
+    <i class="search-icon"></i>
+    <input #searchInput type="text" placeholder="Type to search..." (input)="onSearchTextEntered(searchInput.value)" />
+  </div>
+</div>

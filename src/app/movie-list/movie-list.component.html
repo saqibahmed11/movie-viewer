@@ -1,0 +1,7 @@
+<div class="movie-list-container">
+  <div class="movie-list-row" *ngFor="let film of sortedFilms; let odd = odd; let even = even" (click)="selectFilm(film)">
+    <div class="column episode-column">{{ 'Episode ' + film.episode_id }}</div>
+    <div class="column title-column">{{ 'Episode ' + romanize(film.episode_id) + ' - ' + film.title }}</div>
+    <div class="column release-date-column">{{ film.release_date | date:'yyyy-MM-dd' }}</div>
+  </div>
+</div>

@@ -18,7 +18,6 @@ export class SwapiDevService {
       catchError((error: any) => {
         console.error('Error from SWAPI DEV:', error);
         throw error;
-      })
-    );
+      }));
   }
 }

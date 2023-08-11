@@ -6,10 +6,14 @@ import { SwapiDevService } from "./swapi-dev.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'movie-viewer';
   films: any[] = [];
   isLoading: boolean = true;
+  currentSortOption: string = '';
+  searchText: string = '';
+
+  selectedFilmDetails: { title: string, opening_crawl: string, director: string } = { title: '', opening_crawl: '', director: '' };
 
   constructor(private swapiDevService: SwapiDevService) {}
 
@@ -28,5 +32,17 @@ export class AppComponent implements OnInit{
         console.error('Error fetching films:', error);
         this.isLoading = false;
       });
+  }
+
+  public onSearchTextEntered(searchText: string) {
+    this.searchText = searchText;
+  }
+
+  public onSortOptionSelected(option: string) {
+    this.currentSortOption = option;
+  }
+
+  public onFilmSelected(details: { title:string, opening_crawl: string, director: string }) {
+    this.selectedFilmDetails = details;
   }
 }

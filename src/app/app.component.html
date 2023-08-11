@@ -1,12 +1,13 @@
 <app-loading [isLoading]="isLoading"></app-loading>
 <div *ngIf="!isLoading">
-  <div *ngFor="let film of films">
-    <h2>{{ film.title }}</h2>
-    <p>Episode: {{ film.episode_id }}</p>
-    <p>Director: {{ film.director }}</p>
-    <p>Release Date: {{ film.release_date }}</p>
-    <hr />
+  <app-search-sort (sortOptionSelected)="onSortOptionSelected($event)" (searchTextEntered)="onSearchTextEntered($event)"></app-search-sort>
+  <div class="horizontal-border"></div>
+  <div class="content-container">
+    <div class="movie-list-container">
+      <app-movie-list [films]="films" [sortOption]="currentSortOption" [searchText]="searchText" (selectedFilm)="onFilmSelected($event)"></app-movie-list>
+    </div>
+    <div class="movie-description-container">
+      <app-movie-description [filmDetails]="selectedFilmDetails"></app-movie-description>
+    </div>
   </div>
 </div>
-
-

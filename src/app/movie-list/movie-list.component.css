@@ -1,0 +1,24 @@
+.movie-list-container {
+  padding: 10px;
+}
+
+.movie-list-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.column {
+  color: #596e81;
+
+}
+
+.title-column {
+  text-align: left;
+  font-weight: bold;
+}
+
+.header-row {
+  font-weight: bold;
+}

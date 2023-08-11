@@ -1,0 +1,11 @@
+<div class="movie-description">
+  <ng-container *ngIf="filmDetails.title; else defaultText">
+    <h1>{{ filmDetails.title }}</h1>
+    <p>{{ filmDetails.opening_crawl }}</p>
+    <p>Directed by: {{ filmDetails.director }}</p>
+  </ng-container>
+  <ng-template #defaultText>
+    <p>No movie is selected.</p>
+  </ng-template>
+</div>
+
